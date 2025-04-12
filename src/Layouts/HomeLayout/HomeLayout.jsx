@@ -4,10 +4,12 @@ import LatestNews from '../../Components/LatestNews/LatestNews';
 import Navbar from '../../Components/Navbar/Navbar';
 import LeftNavbar from '../../Components/LayoutComponents/LeftNavbar/LeftNavbar';
 import RightNavbar from '../../Components/LayoutComponents/RightNavbar/RightNavbar';
+import MainContent from '../../Components/LayoutComponents/Maincontent/MainContent';
+import { Outlet } from 'react-router-dom';
 
 const HomeLayout = () => {
     return (
-        <div className='max-w-6xl mx-auto border font-apply'>
+        <div className='max-w-6xl mx-auto  font-apply'>
             <header className='mb-19'>
                 <section className='flex flex-col items-center justify-center mb-8'>
                     <Header></Header>
@@ -32,8 +34,9 @@ const HomeLayout = () => {
                     <LeftNavbar></LeftNavbar>
                 </aside>
 
-                <section className='col-span-6 border'>
-                    <h2>middle</h2>
+                <section className='col-span-6 '>
+                    <MainContent></MainContent>
+                    <Outlet></Outlet>
                 </section>
 
                 <aside className='col-span-3 '>
