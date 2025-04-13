@@ -29,7 +29,7 @@ const HomeLayout = () => {
             </header>
 
 
-            <main className='grid grid-cols-12 mb-20'>
+            <main className='md:grid grid-cols-12 mb-20'>
                 <aside className='col-span-3 h-full'>
                     <LeftNavbar></LeftNavbar>
                 </aside>

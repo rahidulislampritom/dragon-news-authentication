@@ -2,19 +2,18 @@ import React, { useState } from 'react';
 import { FaRegBookmark, FaShareAlt, FaStar, FaEye } from "react-icons/fa";
 
 
-const NewsCard = ({ singleNews }) => {
-
+const NewsCard = ({singleNews}) => {
+    
     const {
         author: { name, published_date },
         details,
         image_url,
-        rating: { number, badge },
-        thumbnail_url,
+        rating: { number },
         title,
         total_view
     } = singleNews;
 
-    console.log(singleNews)
+    // console.log(singleNews)
 
 
     const [isExpanded, setIsExpanded] = useState(false);
@@ -83,7 +82,7 @@ const NewsCard = ({ singleNews }) => {
                 </div>
                 <div className="flex items-center gap-1">
                     <FaEye />
-                  
+
                     <span>{total_view}</span>
 
                 </div>

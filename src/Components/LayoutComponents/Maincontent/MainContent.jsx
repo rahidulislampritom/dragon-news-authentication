@@ -4,7 +4,7 @@ const MainContent = () => {
     return (
         <div>
             <div>
-                <h2>Dragon News Home</h2>
+                <h2 className='text-[20px] text-[#403F3F] font-semibold'>Dragon News Home</h2>
             </div>
         </div>
     );

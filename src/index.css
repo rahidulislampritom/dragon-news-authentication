@@ -6,6 +6,6 @@
     --font-apply: Poppins, sans-serif;
 }
 
-/* a.active{
-    background-color: red;
-} */
+a.active {
+    background-color: #E7E7E7;
+}

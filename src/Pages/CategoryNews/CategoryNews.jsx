@@ -9,6 +9,7 @@ const CategoryNews = () => {
     return (
         <div>
             <div className='flex flex-col gap-3 p-4'>
+          
                 {
                     news.map((singleNews,index) => <NewsCard key={index} singleNews={singleNews}></NewsCard>)
                 }
