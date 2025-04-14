@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { CgProfile } from 'react-icons/cg';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ const Navbar = () => {
     </>
     return (
 
-        <div className='flex flex-col-reverse md:flex-row items-center mt-9'>
+        <div className='flex flex-col-reverse md:flex-row items-center pt-9'>
 
             <div className='md:w-1/3'>
 
@@ -22,7 +22,7 @@ const Navbar = () => {
             </div>
 
             <div className='flex  items-center justify-center gap-2 md:w-1/3 '>
-                <span><CgProfile className='text-4xl' /></span>``
+                <span><CgProfile className='text-4xl' /></span>
                 <Link to={'/auth/login'} className='btn btn-neutral rounded-none px-10 py-4 text-lg'>Login</Link>
             </div>
 
