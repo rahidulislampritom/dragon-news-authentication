@@ -22,7 +22,7 @@ const Navbar = () => {
             </div>
 
             <div className='flex  items-center justify-center gap-2 md:w-1/3 '>
-                <span><CgProfile className='text-4xl' /></span>
+                <span><CgProfile className='text-4xl' /></span>``
                 <button className='btn btn-neutral rounded-none px-10 py-4 text-lg'>Login</button>
             </div>
 
@@ -31,4 +31,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default Navbar;  
