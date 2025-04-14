@@ -1,6 +1,6 @@
 import React from 'react';
 import { CgProfile } from 'react-icons/cg';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -23,7 +23,7 @@ const Navbar = () => {
 
             <div className='flex  items-center justify-center gap-2 md:w-1/3 '>
                 <span><CgProfile className='text-4xl' /></span>``
-                <button className='btn btn-neutral rounded-none px-10 py-4 text-lg'>Login</button>
+                <Link to={'/auth/login'} className='btn btn-neutral rounded-none px-10 py-4 text-lg'>Login</Link>
             </div>
 
         </div>
