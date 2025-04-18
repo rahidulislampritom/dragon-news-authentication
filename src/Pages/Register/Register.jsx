@@ -1,9 +1,13 @@
 import { useContext } from "react";
 import { FiImage, FiLock, FiMail, FiUser } from "react-icons/fi";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import { PiAlarmThin } from "react-icons/pi";
 
 const Register = () => {
-    const { authSignUp } = useContext(AuthContext);
+    const { authSignUp, setUser, error, setError, profileUpdate } = useContext(AuthContext);
+
+    const navigate = useNavigate()
     const handleSignUPSubmit = (e) => {
         e.preventDefault();
         // const form = e.target;
@@ -18,10 +22,43 @@ const Register = () => {
         const photo = form.get('photo')
         const email = form.get('email')
         const password = form.get('password')
-        console.log({name, photo, email, password});
 
+        console.log(name, photo, email, password);
+
+        if (password.length < 6) {
+            setError({ ...error, passErrNote: 'must be more than 6 character' })
+            return
+        }
+        // console.log(error.passErrNote)
+
+
+        const terms = e.target.terms.checked;
+        // console.log(terms)
+        if (!terms) {
+            setError({ ...error, termsError: 'Please Accept Our terms and condition' })
+            return
+        }
 
         authSignUp(email, password)
+            .then((result) => {
+                console.log(result.user)
+                setUser(result.user)
+                setError({})
+                profileUpdate({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        alert('Profile successfully Updated')
+                    })
+                    .catch((err) => {
+                        alert('update Profile Error', err)
+                    })
+
+
+                navigate('/category/01')
+
+            })
+            .catch((error) => {
+                console.log('SignUp Error', error.message)
+            })
 
     }
 
@@ -80,13 +117,20 @@ const Register = () => {
                             />
                             <FiLock className="absolute top-3.5 left-3 text-gray-400" />
                         </div>
+                        {
+                            error?.passErrNote && <label className="block text-sm font-semibold text-red-700 mt-1">{error.passErrNote}</label>
+
+                        }
+
                     </div>
 
                     <div className="flex items-center gap-2">
-                        <input type="checkbox" className="checkbox checkbox-sm" />
-                        <label className="text-sm text-gray-700">Accept Terms & Conditions</label>
+                        <input name="terms" type="checkbox" className="checkbox checkbox-sm" />
+                        <h2 className="text-sm text-gray-700">Accept Terms & Conditions</h2>
                     </div>
-
+                    {
+                        error?.termsError && <label className="block text-sm font-semibold text-red-700 mt-1">{error.termsError}</label>
+                    }
                     <button type="submit" className="btn btn-block bg-black text-white hover:bg-gray-800">
                         Register
                     </button>

@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { FaRegBookmark, FaShareAlt, FaStar, FaEye } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
+const NewsCard = ({ singleNews }) => {
 
 
-const NewsCard = ({singleNews}) => {
-    
     const {
+        _id,
         author: { name, published_date },
         details,
         image_url,
@@ -16,11 +18,11 @@ const NewsCard = ({singleNews}) => {
     // console.log(singleNews)
 
 
-    const [isExpanded, setIsExpanded] = useState(false);
+    // const [isExpanded, setIsExpanded] = useState(false);
 
-    const toggleReadMore = () => {
-        setIsExpanded(!isExpanded);
-    };
+    // const toggleReadMore = () => {
+    //     setIsExpanded(!isExpanded);
+    // };
     return (
         <div className="card bg-base-100 shadow-md mb-6 border border-[#E7E7E7]">
             {/* Top Bar - Author Info */}
@@ -51,7 +53,7 @@ const NewsCard = ({singleNews}) => {
 
                 {/* Details */}
 
-                <p className="text-sm text-gray-700">
+                {/* <p className="text-sm text-gray-700">
                     {
                         details.length > 250
                             ? (
@@ -69,7 +71,36 @@ const NewsCard = ({singleNews}) => {
                             )
                             : details
                     }
+                   
+                </p> */}
+
+
+
+                <p className="text-sm text-gray-700">
+                    {/* here no validation for read more is allowed */}
+                    {/* 
+                    {details.slice(0, 250)}...
+
+                    {
+                        user && user?.email
+                            ? <Link to={`/details/${_id}`} className=" text-red-500 font-semibold">
+                                read more
+                            </Link>
+                            : <Link to={'/auth/login'} className=" text-red-500 font-semibold">
+                                read more
+                            </Link>
+                    } */}
+
+                    {/* here no validation for read more is allowed */}
+
+                    
+                        {details.slice(0, 150)}...{''}
+                        <Link to={`/details/${_id}`} className=" text-red-500 font-semibold">Read More</Link>
+                    
                 </p>
+
+
+
             </div>
 
             {/* Footer - Rating & Views */}
@@ -87,7 +118,7 @@ const NewsCard = ({singleNews}) => {
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
